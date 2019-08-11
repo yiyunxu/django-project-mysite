@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from blogging.models import Post, Category
-from rest_framework import viewsets
-from blogging.serializers import PostSerializer, CategorySerializer
+
 
 def stub_view(request, *args, **kwargs):
     body = "Stub View\n\n"
@@ -43,17 +42,3 @@ def detail_view(request, post_id):
     return render(request, 'blogging/detail.html', context)
 
 
-class PostViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows posts to be viewed or edited.
-    """
-    queryset = Post.objects.all().order_by('-created_date')
-    serializer_class = PostSerializer
-
-
-class CategoryViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows categories to be viewed or edited.
-    """
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer

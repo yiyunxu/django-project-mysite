@@ -3,11 +3,9 @@ from rest_framework import serializers
 
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
-    #url = serializers.HyperlinkedIdentityField(view_name="post-detail")
-
     class Meta:
         model = Post
-        fields = ['url', 'title', 'text', 'author'], 'created_date', 'modified_date', 'published_date']
+        fields = ('url', 'title', 'text', 'author', 'created_date', 'modified_date', 'published_date')
 
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
