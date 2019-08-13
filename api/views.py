@@ -3,8 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from blogging.models import Post, Category
 from rest_framework import viewsets
-from api.serializers import PostSerializer, CategorySerializer
-
+from api.serializers import PostSerializer, CategorySerializer, UserSerializer
+from django.contrib.auth.models import User
 
 class PostViewSet(viewsets.ModelViewSet):
     """
@@ -20,3 +20,11 @@ class CategoryViewSet(viewsets.ModelViewSet):
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows categories to be viewed or edited.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

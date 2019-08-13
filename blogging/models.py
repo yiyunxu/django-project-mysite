@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
 class Post(models.Model):
     title = models.CharField(max_length=128)
     text = models.TextField(blank=True)
@@ -16,6 +15,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return "/posts/%i/" % self.pk
+
+    class Meta:
+        verbose_name_plural = 'Posts'
+
 
 class Category(models.Model):
     name = models.CharField(max_length=128)
