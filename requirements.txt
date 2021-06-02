@@ -14,5 +14,5 @@ peewee==3.3.4
 psycopg2-binary==2.8.3
 pytz==2019.1
 requests==2.22.0
-urllib3==1.25.3
+urllib3==1.26.5
 Werkzeug==0.14.1
